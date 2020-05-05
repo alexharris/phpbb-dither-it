@@ -1,0 +1,29 @@
+services:
+    alexharris.ditherit.controller.main:
+        class: alexharris\ditherit\controller\main_controller
+        arguments:
+            - '@config'
+            - '@controller.helper'
+            - '@template'
+            - '@language'
+
+    alexharris.ditherit.controller.acp:
+        class: alexharris\ditherit\controller\acp_controller
+        arguments:
+            - '@config'
+            - '@language'
+            - '@log'
+            - '@request'
+            - '@template'
+            - '@user'
+
+    alexharris.ditherit.listener:
+        class: alexharris\ditherit\event\main_listener
+        arguments:
+            - '@language'
+            - '@controller.helper'
+            - '@template'
+            - '@config'
+            - '%core.php_ext%'
+        tags:
+            - { name: event.listener }

@@ -1,0 +1,3 @@
+alexharris_ditherit_controller:
+    path: /demo/{name}
+    defaults: { _controller: alexharris.ditherit.controller.main:handle }
